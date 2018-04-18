@@ -1,0 +1,107 @@
+package com.universo.gtp.appcod.feature;
+
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView valor1;
+    private TextView valor2;
+    private EditText texto1;
+    private Button botao1;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        valor1 = (TextView) findViewById(R.id.valor1);
+        texto1 = (EditText) findViewById(R.id.texto1);
+        botao1 = (Button) findViewById(R.id.botao1);
+
+
+
+
+
+        texto1.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                float resul;
+
+                float num1 = Float.parseFloat(texto1.getText().toString());
+
+                resul = num1 + 100;
+
+                valor1.setText(String.valueOf(resul));
+
+
+
+                //TextView myOutputBox = (TextView) findViewById(R.id.valor1);
+               // myOutputBox.setText(s);
+            }
+        });
+
+
+
+
+
+
+
+
+
+        // Botão para clicar e aparecer no texto
+        /*  botao1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String name = texto1.getText().toString();
+
+            //"Testar este no lugar do acima string, apagar o append abaixo"      textView.setText(editText.getText().toString());
+
+                valor1.append(name);
+
+            }
+        }); */
+
+
+        // Botão para aparecer mensagem, na tela - (apagar entre asterisco tela anotação)
+        /* botao1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                double num1 = Double.parseDouble(texto1.getText().toString());
+
+                double res = num1+100;
+                // preparando AlertDialog: instanciando e setando valores o objeto AlertDialog
+                // Instância
+                AlertDialog.Builder dialogo = new AlertDialog.Builder(MainActivity.this);
+                // setando título
+                dialogo.setTitle("Resultado");
+                // setando mensagem
+                dialogo.setMessage("Soma: " + res);
+                // setando botão
+                dialogo.setNeutralButton("OK", null);
+                // chamando o AlertDialog
+                dialogo.show();
+            }
+        });
+        */
+    }
+
+}
